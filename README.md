@@ -1,5 +1,12 @@
 # **Sistema de pedidos**
-### Versão NodeJS
+### Sobre o projeto
+
+Back-End: Node Js
+Front-End: Ejs
+Banco de Dados: Mongoose
+
+Tecnologias usadas para um simples projeto de pedidos, onde o usuario pode fazer pedidos de pizza e de bebidas !
+Foi utilizada as tecnologias pelas fato do uso ser facil e simples implementação
 
 
 
