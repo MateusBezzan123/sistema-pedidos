@@ -1,26 +1,36 @@
-const express = require('express')
-const bp = require('body-parser')
+// chamando modulos
+const express = require('express');
+const bp = require('body-parser');
 
-const app = express()
+
+// criando aplicacao
+const app = express();
+
 
 // configurando o parser
-
-app.use(bp.json({ limit: '10mb' }))
-app.use(bp.urlencoded({ extended: false }))
-
-
-// configurando Front
-app.set('view engine', 'ejs')
-app.set('views', 'views')
+app.use(bp.json({limit: '10mb'}));
+app.use(bp.urlencoded({extendend: false}));
 
 
-//definindo arquivos estaticos
-app.use(express.static('public'))
+// configurando o frontend
+app.set('view engine', 'ejs');
+app.set('views', 'views');
 
 
-//chamando rotas
-app.use('/', (req, res)=>{
-    return res.render('login')
-}) 
+// definindo arquivos estaticos
+app.use(express.static('public'));
 
+const cliente_route = require('../src/routes/cliente');
+const funcionario_route = require('../src/routes/funcionario');
+
+app.use('/cliente', cliente_route);
+app.use('/funcionario', funcionario_route);
+
+// chamando rotas  default
+app.use('/', (req, res) => {
+    return res.send('Bem vind@!!!');
+});
+
+
+// exportando aplicacao
 module.exports = app;
