@@ -1,5 +1,7 @@
-const smc = require('simple-mongoose-creator');
-smc.smc('clientes', {
+var mongoose = require('mongoose');
+const schema = mongoose.Schema;
+
+const cliente = new schema({
     nome: {
         type: String, 
         required: true,
@@ -15,4 +17,4 @@ smc.smc('clientes', {
         required: true
     }
 });
-module.exports = smc;
+module.exports = mongoose.model('clientes', cliente);

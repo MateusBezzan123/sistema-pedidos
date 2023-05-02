@@ -1,5 +1,8 @@
-const smc = require('simple-mongoose-creator');
-smc.smc('funcionarios', {
+const mongoose = require('mongoose');
+const schema = mongoose.Schema;
+
+const funcionario = new schema({
+
     matricula: {
         type: Number,
         required: true,
@@ -16,4 +19,5 @@ smc.smc('funcionarios', {
         trim: true
     }
 });
-module.exports = smc;
+module.exports = mongoose.model('funcionarios', funcionario);
+
